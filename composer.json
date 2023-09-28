@@ -11,16 +11,16 @@
     ],
     "require": {
         "php": ">=8.1",
-        "cakephp/cakephp": "5.x-dev",
-        "dereuromark/cakephp-dto": "dev-cake5",
+        "cakephp/cakephp": "^5.0.0",
+        "dereuromark/cakephp-dto": "^2.0.0",
         "phpdocumentor/graphviz": "^2.0.0"
     },
     "require-dev": {
-        "dereuromark/cakephp-ide-helper": "dev-cake5",
+        "dereuromark/cakephp-ide-helper": "^2.0.0",
         "dereuromark/cakephp-tools": "dev-cake5",
         "cakephp/bake": "3.x-dev",
         "cakephp/migrations": "4.x-dev",
-        "phpunit/phpunit": "^9.5.16",
+        "phpunit/phpunit": "^10.3",
         "spryker/code-sniffer": "@stable",
         "phpstan/phpstan": "^1.0.0"
     },
