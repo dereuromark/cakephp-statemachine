@@ -9,6 +9,7 @@ namespace StateMachine\Model;
 
 use Cake\I18n\DateTime;
 use Cake\ORM\Query;
+use Cake\ORM\Query\DeleteQuery;
 use Cake\ORM\Query\SelectQuery;
 use StateMachine\Dto\StateMachine\ItemDto;
 use StateMachine\FactoryTrait;
@@ -209,6 +210,22 @@ class QueryContainer implements QueryContainerInterface
     }
 
     /**
+     * @param \Cake\I18n\DateTime $expirationDate
+     *
+     * @return \Cake\ORM\Query\DeleteQuery
+     */
+    public function deleteLockedItemsByExpirationDate(DateTime $expirationDate): DeleteQuery
+    {
+        $stateMachineLocksTable = $this->getFactory()->createStateMachineLocksTable();
+
+        return $stateMachineLocksTable
+            ->deleteQuery()
+            ->where([
+                $stateMachineLocksTable->aliasField('expires') . ' <= ' => $expirationDate,
+            ]);
+    }
+
+    /**
      * @param string $identifier
      *
      * @return \Cake\ORM\Query\SelectQuery
@@ -219,6 +236,22 @@ class QueryContainer implements QueryContainerInterface
 
         return $stateMachineLocksTable
             ->find()
+            ->where([
+                $stateMachineLocksTable->aliasField('identifier') => $identifier,
+            ]);
+    }
+
+    /**
+     * @param string $identifier
+     *
+     * @return \Cake\ORM\Query\DeleteQuery
+     */
+    public function deleteLockItemsByIdentifier(string $identifier): DeleteQuery
+    {
+        $stateMachineLocksTable = $this->getFactory()->createStateMachineLocksTable();
+
+        return $stateMachineLocksTable
+            ->deleteQuery()
             ->where([
                 $stateMachineLocksTable->aliasField('identifier') => $identifier,
             ]);
@@ -252,6 +285,24 @@ class QueryContainer implements QueryContainerInterface
 
         return $stateMachineTimeoutsTable
             ->find()
+            ->where([
+                $stateMachineTimeoutsTable->aliasField('identifier') => $identifier,
+                $stateMachineTimeoutsTable->aliasField('state_machine_process_id') => $idProcess,
+            ]);
+    }
+
+    /**
+     * @param int $identifier
+     * @param int $idProcess
+     *
+     * @return \Cake\ORM\Query\DeleteQuery
+     */
+    public function deleteEventTimeoutByIdentifierAndFkProcess(int $identifier, int $idProcess): DeleteQuery
+    {
+        $stateMachineTimeoutsTable = $this->getFactory()->createStateMachineTimeoutsTable();
+
+        return $stateMachineTimeoutsTable
+            ->deleteQuery()
             ->where([
                 $stateMachineTimeoutsTable->aliasField('identifier') => $identifier,
                 $stateMachineTimeoutsTable->aliasField('state_machine_process_id') => $idProcess,

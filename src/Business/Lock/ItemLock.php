@@ -87,7 +87,7 @@ class ItemLock implements ItemLockInterface
     public function release(string $identifier): void
     {
         $this->queryContainer
-            ->queryLockItemsByIdentifier($identifier)
+            ->deleteLockItemsByIdentifier($identifier)
             ->delete()->execute();
     }
 
@@ -97,7 +97,7 @@ class ItemLock implements ItemLockInterface
     public function clearLocks(): void
     {
         $this->queryContainer
-            ->queryLockedItemsByExpirationDate(new DateTime('now'))
+            ->deleteLockedItemsByExpirationDate(new DateTime('now'))
             ->delete()->execute();
     }
 

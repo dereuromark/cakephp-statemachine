@@ -406,7 +406,7 @@ class Persistence implements PersistenceInterface
     public function dropTimeoutByItem(ItemDto $itemDto): void
     {
         $this->stateMachineQueryContainer
-            ->queryEventTimeoutByIdentifierAndFkProcess(
+            ->deleteEventTimeoutByIdentifierAndFkProcess(
                 $itemDto->getIdentifierOrFail(),
                 $itemDto->getIdStateMachineProcessOrFail(),
             )->delete()->execute();

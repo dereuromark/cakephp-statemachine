@@ -32,6 +32,7 @@ define('WWW_ROOT', TMP . 'webroot' . DS);
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 require CORE_PATH . 'config/bootstrap.php';
+require CAKE . 'functions.php';
 
 Cake\Core\Configure::write('debug', true);
 
@@ -74,8 +75,8 @@ class_alias(TestApp\Controller\AppController::class, 'App\Controller\AppControll
 class_alias(Cake\View\View::class, 'App\View\AppView');
 class_alias(TestApp\Application::class, 'App\Application');
 
-Cake\Core\Plugin::getCollection()->add(new \StateMachine\Plugin());
-Cake\Core\Plugin::getCollection()->add(new \Tools\Plugin());
+Cake\Core\Plugin::getCollection()->add(new \StateMachine\StateMachinePlugin());
+Cake\Core\Plugin::getCollection()->add(new \Tools\ToolsPlugin());
 
 // Ensure default test connection is defined
 if (!getenv('db_class')) {

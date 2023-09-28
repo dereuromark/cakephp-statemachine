@@ -15,7 +15,7 @@ use StateMachine\Shell\StateMachineShell;
 /**
  * Plugin for StateMachine
  */
-class Plugin extends BasePlugin
+class StateMachinePlugin extends BasePlugin
 {
     /**
      * @var bool

@@ -8,6 +8,8 @@
 namespace StateMachine\Model;
 
 use Cake\I18n\DateTime;
+use Cake\ORM\Query;
+use Cake\ORM\Query\DeleteQuery;
 use Cake\ORM\Query\SelectQuery;
 use StateMachine\Dto\StateMachine\ItemDto;
 
@@ -91,11 +93,25 @@ interface QueryContainerInterface
     public function queryLockedItemsByExpirationDate(DateTime $expirationDate): SelectQuery;
 
     /**
+     * @param \Cake\I18n\DateTime $expirationDate
+     *
+     * @return \Cake\ORM\Query\DeleteQuery
+     */
+    public function deleteLockedItemsByExpirationDate(DateTime $expirationDate): DeleteQuery;
+
+    /**
      * @param string $identifier
      *
      * @return \Cake\ORM\Query\SelectQuery
      */
     public function queryLockItemsByIdentifier(string $identifier): SelectQuery;
+
+    /**
+     * @param string $identifier
+     *
+     * @return \Cake\ORM\Query\DeleteQuery
+     */
+    public function deleteLockItemsByIdentifier(string $identifier): DeleteQuery;
 
     /**
      * @param string $processName
@@ -111,6 +127,14 @@ interface QueryContainerInterface
      * @return \Cake\ORM\Query\SelectQuery
      */
     public function queryEventTimeoutByIdentifierAndFkProcess(int $identifier, int $idProcess): SelectQuery;
+
+    /**
+     * @param int $identifier
+     * @param int $idProcess
+     *
+     * @return \Cake\ORM\Query\DeleteQuery
+     */
+    public function deleteEventTimeoutByIdentifierAndFkProcess(int $identifier, int $idProcess): DeleteQuery;
 
     /**
      * @param string $stateMachineName

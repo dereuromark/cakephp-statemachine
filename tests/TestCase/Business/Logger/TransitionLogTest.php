@@ -130,7 +130,7 @@ class TransitionLogTest extends TestCase
         $transitionLog->save($itemDto);
         $transitionLog->saveAll();
 
-        $stateMachineTransitionLogEntity = $this->StateMachineTransitionLogs->find()->last();
+        $stateMachineTransitionLogEntity = $this->StateMachineTransitionLogs->find()->orderByDesc('id')->firstOrFail();
 
         $this->assertSame(get_class($commandMock), $stateMachineTransitionLogEntity->command);
         $this->assertSame(get_class($conditionMock), $stateMachineTransitionLogEntity->condition);
@@ -140,7 +140,7 @@ class TransitionLogTest extends TestCase
 
         $this->StateMachineItems = TableRegistry::getTableLocator()->get('StateMachine.StateMachineItems');
         /** @var \StateMachine\Model\Entity\StateMachineItem $itemEntity */
-        $itemEntity = $this->StateMachineItems->find()->last();
+        $itemEntity = $this->StateMachineItems->find()->orderByDesc('id')->firstOrFail();
         $this->assertSame($itemDto->getIdentifierOrFail(), $itemEntity->identifier);
         $this->assertSame($itemDto->getStateMachineNameOrFail(), $itemEntity->state_machine);
         $this->assertSame($itemDto->getProcessNameOrFail(), $itemEntity->process);
@@ -160,7 +160,7 @@ class TransitionLogTest extends TestCase
         $transitionLog->init([$itemDto]);
 
         $transitionLog->save($itemDto);
-        $stateMachineTransitionLogEntity = $this->StateMachineTransitionLogs->find()->last();
+        $stateMachineTransitionLogEntity = $this->StateMachineTransitionLogs->find()->orderByDesc('id')->firstOrFail();
         $storedParams = json_decode($stateMachineTransitionLogEntity->params);
         $this->assertSame($this->createQueryString(static::QUERY_DATA[0]), $storedParams[0]);
         $this->assertSame($this->createQueryString(static::QUERY_DATA[1]), $storedParams[1]);
