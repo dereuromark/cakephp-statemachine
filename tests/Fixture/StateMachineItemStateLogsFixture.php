@@ -43,8 +43,7 @@ class StateMachineItemStateLogsFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => 1,
-                'state_machine_item_state_id' => 1,
+               'state_machine_item_state_id' => 1,
                 'identifier' => 1,
                 'created' => '2019-04-22 12:59:45',
             ],
