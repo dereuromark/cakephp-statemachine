@@ -10,6 +10,7 @@ namespace StateMachine;
 use Cake\Console\CommandCollection;
 use Cake\Core\BasePlugin;
 use Cake\Routing\RouteBuilder;
+use StateMachine\Command\StateMachineInitCommand;
 
 /**
  * Plugin for StateMachine
@@ -25,6 +26,13 @@ class StateMachinePlugin extends BasePlugin
      * @var bool
      */
     protected bool $bootstrapEnabled = false;
+
+    /**
+     * @var array<class-string<\Cake\Console\BaseCommand>>
+     */
+    protected $stateMachineCommandsList = [
+        StateMachineInitCommand::class,
+    ];
 
     /**
      * @param \Cake\Routing\RouteBuilder $routes The route builder to update.
@@ -53,7 +61,25 @@ class StateMachinePlugin extends BasePlugin
      */
     public function console(CommandCollection $commands): CommandCollection
     {
-        $commandList = $commands->discoverPlugin($this->getName());
+        // If require-dev we can just auto add them
+        if (class_exists('Bake\Command\SimpleBakeCommand')) {
+            $commandList = $commands->discoverPlugin($this->getName());
+
+            return $commands->addMany($commandList);
+        }
+
+        $commandList = [];
+        foreach ($this->stateMachineCommandsList as $class) {
+            $name = $class::defaultName();
+            // If the short name has been used, use the full name.
+            // This allows app commands to have name preference.
+            // and app commands to overwrite migration commands.
+            if (!$commands->has($name)) {
+                $commandList[$name] = $class;
+            }
+            // full name
+            $commandList['state_machine.' . $name] = $class;
+        }
 
         return $commands->addMany($commandList);
     }
