@@ -40,7 +40,6 @@ class StateMachineProcessesController extends AppController
         $stateMachineProcesses = $this->paginate();
 
         $this->set(compact('stateMachineProcesses'));
-        $this->set('_serialize', ['stateMachineProcesses']);
     }
 
     /**
@@ -57,7 +56,6 @@ class StateMachineProcessesController extends AppController
         ]);
 
         $this->set(compact('stateMachineProcess'));
-        $this->set('_serialize', ['stateMachineProcess']);
     }
 
     /**

@@ -46,7 +46,6 @@ class StateMachineTransitionLogsController extends AppController
         $stateMachineTransitionLogs = $this->paginate();
 
         $this->set(compact('stateMachineTransitionLogs'));
-        $this->set('_serialize', ['stateMachineTransitionLogs']);
     }
 
     /**
@@ -63,7 +62,6 @@ class StateMachineTransitionLogsController extends AppController
         ]);
 
         $this->set(compact('stateMachineTransitionLog'));
-        $this->set('_serialize', ['stateMachineTransitionLog']);
     }
 
     /**

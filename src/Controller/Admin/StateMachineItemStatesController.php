@@ -43,7 +43,6 @@ class StateMachineItemStatesController extends AppController
         $stateMachineItemStates = $this->paginate();
 
         $this->set(compact('stateMachineItemStates'));
-        $this->set('_serialize', ['stateMachineItemStates']);
     }
 
     /**
@@ -60,7 +59,6 @@ class StateMachineItemStatesController extends AppController
         ]);
 
         $this->set(compact('stateMachineItemState'));
-        $this->set('_serialize', ['stateMachineItemState']);
     }
 
     /**

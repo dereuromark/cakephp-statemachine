@@ -46,7 +46,6 @@ class StateMachineItemStateLogsController extends AppController
         $stateMachineItemStateLogs = $this->paginate();
 
         $this->set(compact('stateMachineItemStateLogs'));
-        $this->set('_serialize', ['stateMachineItemStateLogs']);
     }
 
     /**

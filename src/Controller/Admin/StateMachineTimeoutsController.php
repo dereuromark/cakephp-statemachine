@@ -43,7 +43,6 @@ class StateMachineTimeoutsController extends AppController
         $stateMachineTimeouts = $this->paginate();
 
         $this->set(compact('stateMachineTimeouts'));
-        $this->set('_serialize', ['stateMachineTimeouts']);
     }
 
     /**
@@ -60,7 +59,6 @@ class StateMachineTimeoutsController extends AppController
         ]);
 
         $this->set(compact('stateMachineTimeout'));
-        $this->set('_serialize', ['stateMachineTimeout']);
     }
 
     /**
