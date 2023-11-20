@@ -8,7 +8,6 @@
 namespace StateMachine\Model;
 
 use Cake\I18n\DateTime;
-use Cake\ORM\Query;
 use Cake\ORM\Query\DeleteQuery;
 use Cake\ORM\Query\SelectQuery;
 use StateMachine\Dto\StateMachine\ItemDto;

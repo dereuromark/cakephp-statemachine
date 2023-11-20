@@ -17,9 +17,9 @@
     },
     "require-dev": {
         "dereuromark/cakephp-ide-helper": "^2.0.0",
-        "dereuromark/cakephp-tools": "dev-cake5",
-        "cakephp/bake": "3.x-dev",
-        "cakephp/migrations": "4.x-dev",
+        "dereuromark/cakephp-tools": "^3.0.0",
+        "cakephp/bake": "^3.0.4",
+        "cakephp/migrations": "^4.1.1",
         "phpunit/phpunit": "^10.3",
         "spryker/code-sniffer": "@stable",
         "phpstan/phpstan": "^1.0.0"
@@ -51,6 +51,5 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
