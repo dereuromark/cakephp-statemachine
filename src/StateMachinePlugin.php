@@ -78,7 +78,7 @@ class StateMachinePlugin extends BasePlugin
                 $commandList[$name] = $class;
             }
             // full name
-            $commandList['state_machine.' . $name] = $class;
+            $commandList['state_machine ' . $name] = $class;
         }
 
         return $commands->addMany($commandList);
