@@ -10,6 +10,9 @@ namespace StateMachine;
 use Cake\Console\CommandCollection;
 use Cake\Core\BasePlugin;
 use Cake\Routing\RouteBuilder;
+use StateMachine\Command\StateMachineCheckConditionsCommand;
+use StateMachine\Command\StateMachineCheckTimeoutsCommand;
+use StateMachine\Command\StateMachineClearLocksCommand;
 use StateMachine\Command\StateMachineInitCommand;
 
 /**
@@ -32,6 +35,9 @@ class StateMachinePlugin extends BasePlugin
      */
     protected $stateMachineCommandsList = [
         StateMachineInitCommand::class,
+        StateMachineCheckConditionsCommand::class,
+        StateMachineCheckTimeoutsCommand::class,
+        StateMachineClearLocksCommand::class,
     ];
 
     /**
