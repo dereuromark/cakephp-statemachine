@@ -28,13 +28,6 @@ class StateMachinePlugin extends BasePlugin
     protected bool $bootstrapEnabled = false;
 
     /**
-     * @var array<string>
-     */
-    protected array $stateMachineCommandsList = [
-        StateMachineShell::class,
-    ];
-
-    /**
      * @param \Cake\Routing\RouteBuilder $routes The route builder to update.
      *
      * @return void
@@ -66,21 +59,5 @@ class StateMachinePlugin extends BasePlugin
 
             return $commands->addMany($commandList);
         }
-
-        $commandList = [];
-        foreach ($this->stateMachineCommandsList as $class) {
-            /** @var string $name */
-            $name = $class::defaultName();
-            // If the short name has been used, use the full name.
-            // This allows app commands to have name preference.
-            // and app commands to overwrite migration commands.
-            if (!$commands->has($name)) {
-                $commandList[$name] = $class;
-            }
-            // full name
-            $commandList['state_machine ' . $name] = $class;
-        }
-
-        return $commands->addMany($commandList);
     }
 }
