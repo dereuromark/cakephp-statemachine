@@ -10,7 +10,6 @@ namespace StateMachine;
 use Cake\Console\CommandCollection;
 use Cake\Core\BasePlugin;
 use Cake\Routing\RouteBuilder;
-use StateMachine\Shell\StateMachineShell;
 
 /**
  * Plugin for StateMachine
@@ -54,10 +53,8 @@ class StateMachinePlugin extends BasePlugin
      */
     public function console(CommandCollection $commands): CommandCollection
     {
-        if (class_exists('Bake\Command\SimpleBakeCommand')) {
-            $commandList = $commands->discoverPlugin($this->getName());
+        $commandList = $commands->discoverPlugin($this->getName());
 
-            return $commands->addMany($commandList);
-        }
+        return $commands->addMany($commandList);
     }
 }

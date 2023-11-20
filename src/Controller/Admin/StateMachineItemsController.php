@@ -8,6 +8,7 @@
 namespace StateMachine\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\Event\EventInterface;
 use Cake\Http\Response;
 use StateMachine\Business\StateMachineFacade;
 use StateMachine\Dto\StateMachine\ItemDto;
@@ -21,6 +22,18 @@ use StateMachine\Dto\StateMachine\ItemDto;
  */
 class StateMachineItemsController extends AppController
 {
+    /**
+     * @param \Cake\Event\EventInterface $event
+     *
+     * @return \Cake\Http\Response|null|void
+     */
+    public function beforeRender(EventInterface $event)
+    {
+        parent::beforeRender($event);
+
+        $this->viewBuilder()->addHelper('Tools.Icon');
+    }
+
     /**
      * Index method
      *

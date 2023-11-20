@@ -3,6 +3,9 @@
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+use Cake\Core\Configure;
+use Tools\View\Icon\BootstrapIcon;
+
 if (!defined('DS')) {
     define('DS', DIRECTORY_SEPARATOR);
 }
@@ -70,6 +73,12 @@ $cache = [
 ];
 
 Cake\Cache\Cache::setConfig($cache);
+
+Configure::write('Icon', [
+    'sets' => [
+        'bs' => BootstrapIcon::class,
+    ],
+]);
 
 class_alias(TestApp\Controller\AppController::class, 'App\Controller\AppController');
 class_alias(Cake\View\View::class, 'App\View\AppView');
