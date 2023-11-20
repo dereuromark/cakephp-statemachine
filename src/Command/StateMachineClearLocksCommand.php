@@ -13,19 +13,21 @@ use Cake\Console\ConsoleIo;
 use Cake\Console\ConsoleOptionParser;
 use Cake\Core\Configure;
 use Cake\Utility\Inflector;
-use StateMachine\StateMachineConfig;
+use StateMachine\FacadeAwareTrait;
 
 /**
- * Command class for initializing.
+ * Command class for lock handling.
  */
-class StateMachineInitCommand extends Command
+class StateMachineClearLocksCommand extends Command
 {
+    use FacadeAwareTrait;
+
     /**
      * @inheritDoc
      */
     public static function defaultName(): string
     {
-        return 'state_machine init';
+        return 'state_machine clear_locks';
     }
 
     /**
@@ -36,12 +38,7 @@ class StateMachineInitCommand extends Command
     protected function buildOptionParser(ConsoleOptionParser $parser): ConsoleOptionParser
     {
         $parser = parent::buildOptionParser($parser);
-        $parser->setDescription('Initialize XML file.');
-
-        $parser->addArgument('name', [
-            'required' => true,
-            'help' => 'Name for the state machine.',
-        ]);
+        $parser->setDescription('Clear expired locks from lock table.');
 
         return $parser;
     }
@@ -54,38 +51,7 @@ class StateMachineInitCommand extends Command
      */
     public function execute(Arguments $args, ConsoleIo $io)
     {
-        $stateMachine = (string)$args->getArgumentAt(0);
-        $stateMachine = Inflector::camelize($stateMachine);
-
-        $io->out('Initialize state machine ' . $stateMachine . ':');
-        $processName = $stateMachine . '01';
-        $config = new StateMachineConfig();
-        $pathToXml = $config->getPathToStateMachineXmlFiles() . $stateMachine . DS;
-        $filePath = $pathToXml . $processName . '.xml';
-        if (!$args->getOption('overwrite') && file_exists($filePath)) {
-            $io->err(sprintf('State machine `%s` already exists. Use a different name.', $stateMachine));
-            $this->abort();
-        }
-
-        if (!is_dir($pathToXml)) {
-            mkdir($pathToXml, 0770, true);
-        }
-        $xml = $this->xml($stateMachine, $processName);
-        file_put_contents($filePath, $xml);
-        $io->out('- created ' . $filePath);
-
-        $io->out('Initialize handler class ' . $stateMachine . 'StateMachineHandler:');
-
-        $pathToPhp = APP . 'StateMachine' . DS;
-        $filePath = $pathToPhp . $stateMachine . 'StateMachineHandler.php';
-        if (!is_dir($pathToPhp)) {
-            mkdir($pathToPhp, 0770, true);
-        }
-        $php = $this->handler($stateMachine, $processName);
-        file_put_contents($filePath, $php);
-        $io->out('- created ' . $filePath);
-
-        $io->out('Enable it through config and you can then modify this file and verify the changes in real time in the admin backend.');
+        $this->getFacade()->clearLocks();
     }
 
     /**
