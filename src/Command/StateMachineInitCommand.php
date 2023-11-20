@@ -10,6 +10,7 @@ namespace StateMachine\Command;
 use Cake\Command\Command;
 use Cake\Console\Arguments;
 use Cake\Console\ConsoleIo;
+use Cake\Console\ConsoleOptionParser;
 use Cake\Core\Configure;
 use Cake\Utility\Inflector;
 use StateMachine\StateMachineConfig;
@@ -25,6 +26,23 @@ class StateMachineInitCommand extends Command
     public static function defaultName(): string
     {
         return 'state_machine init';
+    }
+
+    /**
+     * @param \Cake\Console\ConsoleOptionParser $parser The parser to be defined
+     *
+     * @return \Cake\Console\ConsoleOptionParser The built parser.
+     */
+    protected function buildOptionParser(ConsoleOptionParser $parser): ConsoleOptionParser {
+        $parser = parent::buildOptionParser($parser);
+        $parser->setDescription('Initialize XML file.');
+
+        $parser->addArgument('name', [
+            'required' => true,
+            'help' => 'Name for the state machine.',
+        ]);
+
+        return $parser;
     }
 
     /**
