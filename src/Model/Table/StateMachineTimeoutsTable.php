@@ -16,19 +16,19 @@ use Cake\Validation\Validator;
  * @property \StateMachine\Model\Table\StateMachineItemStatesTable&\Cake\ORM\Association\BelongsTo $StateMachineItemStates
  * @property \StateMachine\Model\Table\StateMachineProcessesTable&\Cake\ORM\Association\BelongsTo $StateMachineProcesses
  *
- * @method \StateMachine\Model\Entity\StateMachineTimeout get($primaryKey, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineTimeout get(mixed $primaryKey, array|string $finder = 'all', \Psr\SimpleCache\CacheInterface|string|null $cache = null, \Closure|string|null $cacheKey = null, mixed ...$args)
  * @method \StateMachine\Model\Entity\StateMachineTimeout newEntity(array $data, array $options = [])
  * @method array<\StateMachine\Model\Entity\StateMachineTimeout> newEntities(array $data, array $options = [])
- * @method \StateMachine\Model\Entity\StateMachineTimeout|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineTimeout|false save(\Cake\Datasource\EntityInterface $entity, array $options = [])
  * @method \StateMachine\Model\Entity\StateMachineTimeout patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method array<\StateMachine\Model\Entity\StateMachineTimeout> patchEntities(iterable $entities, array $data, array $options = [])
- * @method \StateMachine\Model\Entity\StateMachineTimeout findOrCreate($search, ?callable $callback = null, $options = [])
- * @method \StateMachine\Model\Entity\StateMachineTimeout saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineTimeout findOrCreate($search, ?callable $callback = null, array $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineTimeout saveOrFail(\Cake\Datasource\EntityInterface $entity, array $options = [])
  * @method \StateMachine\Model\Entity\StateMachineTimeout newEmptyEntity()
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineTimeout>|false saveMany(iterable $entities, $options = [])
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineTimeout> saveManyOrFail(iterable $entities, $options = [])
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineTimeout>|false deleteMany(iterable $entities, $options = [])
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineTimeout> deleteManyOrFail(iterable $entities, $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineTimeout>|false saveMany(iterable $entities, array $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineTimeout> saveManyOrFail(iterable $entities, array $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineTimeout>|false deleteMany(iterable $entities, array $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineTimeout> deleteManyOrFail(iterable $entities, array $options = [])
  */
 class StateMachineTimeoutsTable extends Table
 {

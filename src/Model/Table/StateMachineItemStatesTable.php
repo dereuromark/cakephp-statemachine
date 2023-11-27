@@ -17,19 +17,19 @@ use Cake\Validation\Validator;
  * @property \StateMachine\Model\Table\StateMachineItemStateLogsTable&\Cake\ORM\Association\HasMany $StateMachineItemStateLogs
  * @property \StateMachine\Model\Table\StateMachineTimeoutsTable&\Cake\ORM\Association\HasMany $StateMachineTimeouts
  *
- * @method \StateMachine\Model\Entity\StateMachineItemState get($primaryKey, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineItemState get(mixed $primaryKey, array|string $finder = 'all', \Psr\SimpleCache\CacheInterface|string|null $cache = null, \Closure|string|null $cacheKey = null, mixed ...$args)
  * @method \StateMachine\Model\Entity\StateMachineItemState newEntity(array $data, array $options = [])
  * @method array<\StateMachine\Model\Entity\StateMachineItemState> newEntities(array $data, array $options = [])
- * @method \StateMachine\Model\Entity\StateMachineItemState|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineItemState|false save(\Cake\Datasource\EntityInterface $entity, array $options = [])
  * @method \StateMachine\Model\Entity\StateMachineItemState patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method array<\StateMachine\Model\Entity\StateMachineItemState> patchEntities(iterable $entities, array $data, array $options = [])
- * @method \StateMachine\Model\Entity\StateMachineItemState findOrCreate($search, ?callable $callback = null, $options = [])
- * @method \StateMachine\Model\Entity\StateMachineItemState saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineItemState findOrCreate($search, ?callable $callback = null, array $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineItemState saveOrFail(\Cake\Datasource\EntityInterface $entity, array $options = [])
  * @method \StateMachine\Model\Entity\StateMachineItemState newEmptyEntity()
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemState>|false saveMany(iterable $entities, $options = [])
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemState> saveManyOrFail(iterable $entities, $options = [])
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemState>|false deleteMany(iterable $entities, $options = [])
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemState> deleteManyOrFail(iterable $entities, $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemState>|false saveMany(iterable $entities, array $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemState> saveManyOrFail(iterable $entities, array $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemState>|false deleteMany(iterable $entities, array $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemState> deleteManyOrFail(iterable $entities, array $options = [])
  */
 class StateMachineItemStatesTable extends Table
 {

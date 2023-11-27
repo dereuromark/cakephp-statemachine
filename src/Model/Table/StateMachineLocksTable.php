@@ -12,21 +12,21 @@ use Cake\Validation\Validator;
 /**
  * StateMachineLocks Model
  *
- * @method \StateMachine\Model\Entity\StateMachineLock get($primaryKey, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineLock get(mixed $primaryKey, array|string $finder = 'all', \Psr\SimpleCache\CacheInterface|string|null $cache = null, \Closure|string|null $cacheKey = null, mixed ...$args)
  * @method \StateMachine\Model\Entity\StateMachineLock newEntity(array $data, array $options = [])
  * @method array<\StateMachine\Model\Entity\StateMachineLock> newEntities(array $data, array $options = [])
- * @method \StateMachine\Model\Entity\StateMachineLock|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \StateMachine\Model\Entity\StateMachineLock saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineLock|false save(\Cake\Datasource\EntityInterface $entity, array $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineLock saveOrFail(\Cake\Datasource\EntityInterface $entity, array $options = [])
  * @method \StateMachine\Model\Entity\StateMachineLock patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method array<\StateMachine\Model\Entity\StateMachineLock> patchEntities(iterable $entities, array $data, array $options = [])
- * @method \StateMachine\Model\Entity\StateMachineLock findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineLock findOrCreate($search, ?callable $callback = null, array $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  * @method \StateMachine\Model\Entity\StateMachineLock newEmptyEntity()
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineLock>|false saveMany(iterable $entities, $options = [])
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineLock> saveManyOrFail(iterable $entities, $options = [])
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineLock>|false deleteMany(iterable $entities, $options = [])
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineLock> deleteManyOrFail(iterable $entities, $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineLock>|false saveMany(iterable $entities, array $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineLock> saveManyOrFail(iterable $entities, array $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineLock>|false deleteMany(iterable $entities, array $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineLock> deleteManyOrFail(iterable $entities, array $options = [])
  */
 class StateMachineLocksTable extends Table
 {

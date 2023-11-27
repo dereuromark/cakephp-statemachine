@@ -14,21 +14,21 @@ use StateMachine\Model\Entity\StateMachineItem;
 /**
  * @property \StateMachine\Model\Table\StateMachineItemStatesTable&\Cake\ORM\Association\BelongsTo $StateMachineItemStates
  *
- * @method \StateMachine\Model\Entity\StateMachineItemStateLog get($primaryKey, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineItemStateLog get(mixed $primaryKey, array|string $finder = 'all', \Psr\SimpleCache\CacheInterface|string|null $cache = null, \Closure|string|null $cacheKey = null, mixed ...$args)
  * @method \StateMachine\Model\Entity\StateMachineItemStateLog newEntity(array $data, array $options = [])
  * @method array<\StateMachine\Model\Entity\StateMachineItemStateLog> newEntities(array $data, array $options = [])
- * @method \StateMachine\Model\Entity\StateMachineItemStateLog|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineItemStateLog|false save(\Cake\Datasource\EntityInterface $entity, array $options = [])
  * @method \StateMachine\Model\Entity\StateMachineItemStateLog patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method array<\StateMachine\Model\Entity\StateMachineItemStateLog> patchEntities(iterable $entities, array $data, array $options = [])
- * @method \StateMachine\Model\Entity\StateMachineItemStateLog findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineItemStateLog findOrCreate($search, ?callable $callback = null, array $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
- * @method \StateMachine\Model\Entity\StateMachineItemStateLog saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \StateMachine\Model\Entity\StateMachineItemStateLog saveOrFail(\Cake\Datasource\EntityInterface $entity, array $options = [])
  * @method \StateMachine\Model\Entity\StateMachineItemStateLog newEmptyEntity()
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemStateLog>|false saveMany(iterable $entities, $options = [])
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemStateLog> saveManyOrFail(iterable $entities, $options = [])
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemStateLog>|false deleteMany(iterable $entities, $options = [])
- * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemStateLog> deleteManyOrFail(iterable $entities, $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemStateLog>|false saveMany(iterable $entities, array $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemStateLog> saveManyOrFail(iterable $entities, array $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemStateLog>|false deleteMany(iterable $entities, array $options = [])
+ * @method \Cake\Datasource\ResultSetInterface<\StateMachine\Model\Entity\StateMachineItemStateLog> deleteManyOrFail(iterable $entities, array $options = [])
  */
 class StateMachineItemStateLogsTable extends Table
 {

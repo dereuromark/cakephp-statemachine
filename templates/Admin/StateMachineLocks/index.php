@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \StateMachine\Model\Entity\StateMachineLock[]|\Cake\Collection\CollectionInterface $stateMachineLocks
+ * @var iterable<\StateMachine\Model\Entity\StateMachineLock> $stateMachineLocks
  */
 ?>
 <nav class="actions large-3 medium-4 columns col-sm-4 col-12" id="actions-sidebar">

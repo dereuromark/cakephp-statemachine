@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \StateMachine\Model\Entity\StateMachineItem[]|\Cake\Collection\CollectionInterface $stateMachineItems
+ * @var iterable<\StateMachine\Model\Entity\StateMachineItem> $stateMachineItems
  */
 use Cake\Core\Configure;
 

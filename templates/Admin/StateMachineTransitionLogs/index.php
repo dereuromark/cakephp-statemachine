@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \StateMachine\Model\Entity\StateMachineTransitionLog[]|\Cake\Collection\CollectionInterface $stateMachineTransitionLogs
+ * @var iterable<\StateMachine\Model\Entity\StateMachineTransitionLog> $stateMachineTransitionLogs
  */
 ?>
 <nav class="actions large-3 medium-4 columns col-sm-4 col-12" id="actions-sidebar">

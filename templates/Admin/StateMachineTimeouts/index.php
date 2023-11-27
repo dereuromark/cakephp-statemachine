@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \StateMachine\Model\Entity\StateMachineTimeout[]|\Cake\Collection\CollectionInterface $stateMachineTimeouts
+ * @var iterable<\StateMachine\Model\Entity\StateMachineTimeout> $stateMachineTimeouts
  */
 ?>
 <nav class="actions large-3 medium-4 columns col-sm-4 col-12" id="actions-sidebar">

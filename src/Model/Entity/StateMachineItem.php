@@ -41,6 +41,7 @@ class StateMachineItem extends Entity
 
     /**
      * @return array|null
+     * @see \StateMachine\Model\Entity\StateMachineItem::$url
      */
     protected function _getUrl(): ?array
     {
