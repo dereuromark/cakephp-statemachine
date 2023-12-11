@@ -42,8 +42,8 @@ composer require spryker/cakephp-statemachine
 ```
 
 When using this fork it might be needed to first configure it accordingly:
-```
-"repositories": [
+```json
+	"repositories": [
 		{
 			"type": "git",
 			"url": "git@github.com:dereuromark/cakephp-statemachine.git"
