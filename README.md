@@ -41,6 +41,16 @@ Please check https://graphviz.gitlab.io/download/ in order to install it for you
 composer require spryker/cakephp-statemachine
 ```
 
+When using this fork it might be needed to first configure it accordingly:
+```
+"repositories": [
+		{
+			"type": "git",
+			"url": "git@github.com:dereuromark/cakephp-statemachine.git"
+		}
+	],
+```
+
 ## Setup
 Enable the plugin in your `config/bootstrap.php` or call
 ```
