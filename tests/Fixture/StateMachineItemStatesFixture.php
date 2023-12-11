@@ -48,7 +48,7 @@ class StateMachineItemStatesFixture extends TestFixture
     {
         $this->records = [
             [
-               'state_machine_process_id' => 1,
+                'state_machine_process_id' => 1,
                 'name' => self::DEFAULT_STATE_ITEM_NAME,
                 'description' => 'Lorem ipsum dolor sit amet',
             ],

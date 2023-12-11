@@ -47,7 +47,7 @@ class StateMachineItemsFixture extends TestFixture
     {
         $this->records = [
             [
-               'identifier' => 1,
+                'identifier' => 1,
                 'state_machine' => 'TestingSm',
                 'process' => 'TestProcess',
                 'state' => 'Init',

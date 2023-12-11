@@ -36,7 +36,7 @@ class StateMachineTransitionLogsFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'state_machine_item_id' => ['type' => 'foreign', 'columns' => ['state_machine_item_id'], 'references' => ['state_machine_items', 'id'], 'update' => 'restrict', 'delete' => 'cascade', 'length' => []],
+            //'state_machine_item_id' => ['type' => 'foreign', 'columns' => ['state_machine_item_id'], 'references' => ['state_machine_items', 'id'], 'update' => 'restrict', 'delete' => 'cascade', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -53,7 +53,7 @@ class StateMachineTransitionLogsFixture extends TestFixture
     {
         $this->records = [
             [
-               'state_machine_process_id' => 1,
+                'state_machine_process_id' => 1,
                 'state_machine_item_id' => 1,
                 'identifier' => 1,
                 'locked' => 1,

@@ -50,7 +50,7 @@ class StateMachineTimeoutsFixture extends TestFixture
     {
         $this->records = [
             [
-               'state_machine_item_state_id' => 1,
+                'state_machine_item_state_id' => 1,
                 'state_machine_process_id' => 1,
                 'identifier' => 1,
                 'event' => 'Lorem ipsum dolor sit amet',
