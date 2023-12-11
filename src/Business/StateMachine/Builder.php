@@ -208,6 +208,8 @@ class Builder implements BuilderInterface
             $xmlElement = $this->prefixSubProcessElementAttributes($xmlElement, $prefix);
 
             $child = $intoXmlNode->addChild($xmlElement->getName(), $xmlElement);
+            assert($child !== null);
+
             /** @var array<string> $attributes */
             $attributes = $xmlElement->attributes();
             foreach ($attributes as $name => $value) {

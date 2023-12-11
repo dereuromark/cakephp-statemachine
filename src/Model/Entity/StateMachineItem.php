@@ -40,8 +40,9 @@ class StateMachineItem extends Entity
     ];
 
     /**
-     * @return array|null
      * @see \StateMachine\Model\Entity\StateMachineItem::$url
+     *
+     * @return array|null
      */
     protected function _getUrl(): ?array
     {
