@@ -87,6 +87,8 @@ A transition can be conditioned: the state machine can move from one state to an
 if a certain condition associated with that transition is being satisfied.
 ```xml
 <transition condition="Test/Condition">
+    ...
+</transition>
 ```
 
 The map of condition names and classes in code is done in the StateMachineHandler's `getConditions()`.
