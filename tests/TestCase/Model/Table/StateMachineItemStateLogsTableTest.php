@@ -28,10 +28,10 @@ class StateMachineItemStateLogsTableTest extends TestCase
      * @var array
      */
     protected array $fixtures = [
+        'plugin.StateMachine.StateMachineProcesses',
         'plugin.StateMachine.StateMachineItemStateLogs',
         'plugin.StateMachine.StateMachineItemStates',
         'plugin.StateMachine.StateMachineItems',
-        'plugin.StateMachine.StateMachineProcesses',
     ];
 
     /**

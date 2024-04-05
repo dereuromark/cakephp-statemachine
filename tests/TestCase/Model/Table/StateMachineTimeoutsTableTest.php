@@ -28,9 +28,9 @@ class StateMachineTimeoutsTableTest extends TestCase
      * @var array
      */
     protected array $fixtures = [
+        'plugin.StateMachine.StateMachineProcesses',
         'plugin.StateMachine.StateMachineTimeouts',
         'plugin.StateMachine.StateMachineItemStates',
-        'plugin.StateMachine.StateMachineProcesses',
         'plugin.StateMachine.StateMachineItems',
     ];
 
