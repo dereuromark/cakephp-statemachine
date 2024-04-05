@@ -22,7 +22,7 @@
         "dereuromark/cakephp-tools": "^3.0.0",
         "phpstan/phpstan": "^1.0.0",
         "phpunit/phpunit": "^10.3",
-        "spryker/code-sniffer": "@stable"
+        "php-collective/code-sniffer": "dev-master"
     },
     "autoload": {
         "psr-4": {

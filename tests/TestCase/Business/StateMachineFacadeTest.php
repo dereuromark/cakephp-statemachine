@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the License Agreement. See LICENSE file.
  */
 
-namespace StateMachine\Test\TestCase\Business\Business;
+namespace StateMachine\Test\TestCase\Business;
 
 use Cake\Core\Configure;
 use Cake\I18n\DateTime;

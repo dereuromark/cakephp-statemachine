@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the License Agreement. See LICENSE file.
  */
 
-namespace IdeHelper\Test\TestCase\Illuminator\Task;
+namespace StateMachine\Test\TestCase\Illuminator\Task;
 
 use Cake\Console\ConsoleIo;
 use Cake\Core\Configure;
