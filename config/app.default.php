@@ -2,8 +2,7 @@
 
 return [
     'StateMachine' => [
-        'handlers' => [
-        ],
+        'handlers' => [],
         'graphAdapter' => \StateMachine\Graph\Adapter\PhpDocumentorGraphAdapter::class,
         'maxEventRepeats' => 10,
         'maxLookupInPersistence' => false, // @deprecated: Deprecated, not functional

@@ -76,7 +76,7 @@ interface PersistenceInterface
     public function getStateMachineItemIdsByStatesProcessAndStateMachineName(
         string $processName,
         string $stateMachineName,
-        array $states
+        array $states,
     ): array;
 
     /**
@@ -96,7 +96,7 @@ interface PersistenceInterface
     public function saveStateMachineItemTimeout(
         ItemDto $itemDto,
         DateTime $timeoutDate,
-        string $eventName
+        string $eventName,
     ): StateMachineTimeout;
 
     /**

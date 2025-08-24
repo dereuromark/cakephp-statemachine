@@ -41,7 +41,7 @@ class Finder implements FinderInterface
     public function __construct(
         BuilderInterface $builder,
         HandlerResolverInterface $stateMachineHandlerResolver,
-        QueryContainerInterface $queryContainer
+        QueryContainerInterface $queryContainer,
     ) {
         $this->builder = $builder;
         $this->stateMachineHandlerResolver = $stateMachineHandlerResolver;
@@ -213,7 +213,7 @@ class Finder implements FinderInterface
     public function filterItemsWithOnEnterEvent(
         array $stateMachineItems,
         array $processes,
-        array $sourceStates = []
+        array $sourceStates = [],
     ): array {
         $itemsWithOnEnterEvent = [];
         foreach ($stateMachineItems as $itemDto) {
@@ -325,7 +325,7 @@ class Finder implements FinderInterface
     protected function createStateMachineHistoryItemTransfer(
         ProcessDto $processDto,
         StateMachineItemState $stateMachineItemEntity,
-        StateMachineProcess $stateMachineProcessEntity
+        StateMachineProcess $stateMachineProcessEntity,
     ): ItemDto {
         $itemDto = new ItemDto();
         $itemDto->setProcessName($processDto->getProcessNameOrFail());

@@ -70,7 +70,7 @@ class Persistence implements PersistenceInterface
         StateMachineItemStateLogsTable $stateMachineItemStateLogsTable,
         StateMachineProcessesTable $stateMachineProcessesTable,
         StateMachineItemStatesTable $stateMachineItemStatesTable,
-        StateMachineTimeoutsTable $stateMachineTimeoutsTable
+        StateMachineTimeoutsTable $stateMachineTimeoutsTable,
     ) {
         $this->stateMachineQueryContainer = $stateMachineQueryContainer;
         $this->stateMachineItemStateLogsTable = $stateMachineItemStateLogsTable;
@@ -317,7 +317,7 @@ class Persistence implements PersistenceInterface
     public function getStateMachineItemIdsByStatesProcessAndStateMachineName(
         string $processName,
         string $stateMachineName,
-        array $states
+        array $states,
     ): array {
         $stateMachineStateItems = $this->stateMachineQueryContainer
             ->queryItemsByIdStateMachineProcessAndItemStates(
@@ -384,7 +384,7 @@ class Persistence implements PersistenceInterface
     public function saveStateMachineItemTimeout(
         ItemDto $itemDto,
         DateTime $timeoutDate,
-        string $eventName
+        string $eventName,
     ): StateMachineTimeout {
         $stateMachineItemTimeoutEntity = $this->stateMachineTimeoutsTable->newEmptyEntity();
         $stateMachineItemTimeoutEntity->timeout = $timeoutDate;
@@ -453,7 +453,7 @@ class Persistence implements PersistenceInterface
      */
     protected function createItemTransferForStateHistory(
         int $itemIdentifier,
-        StateMachineItemStateLog $stateMachineItemHistoryEntity
+        StateMachineItemStateLog $stateMachineItemHistoryEntity,
     ): ItemDto {
         $itemStateEntity = $stateMachineItemHistoryEntity->state_machine_item_state;
         $processEntity = $itemStateEntity->state_machine_process;

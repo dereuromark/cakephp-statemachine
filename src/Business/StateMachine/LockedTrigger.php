@@ -37,7 +37,7 @@ class LockedTrigger implements TriggerInterface
     public function __construct(
         TriggerInterface $stateMachineTrigger,
         ItemLockInterface $itemLock,
-        HandlerResolverInterface $stateMachineHandlerResolver
+        HandlerResolverInterface $stateMachineHandlerResolver,
     ) {
         $this->itemLock = $itemLock;
         $this->stateMachineTrigger = $stateMachineTrigger;

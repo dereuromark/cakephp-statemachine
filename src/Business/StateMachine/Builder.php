@@ -121,7 +121,7 @@ class Builder implements BuilderInterface
         StateInterface $state,
         TransitionInterface $transition,
         ProcessInterface $process,
-        StateMachineConfig $stateMachineConfig
+        StateMachineConfig $stateMachineConfig,
     ) {
         $this->event = $event;
         $this->state = $state;
@@ -576,7 +576,7 @@ class Builder implements BuilderInterface
     protected function setTransitionSource(
         array $stateToProcessMap,
         string $sourceName,
-        TransitionInterface $transition
+        TransitionInterface $transition,
     ): void {
         $sourceProcess = $stateToProcessMap[$sourceName] ?? null;
         if (!$sourceProcess) {
@@ -606,7 +606,7 @@ class Builder implements BuilderInterface
         array $stateToProcessMap,
         SimpleXMLElement $xmlTransition,
         string $sourceName,
-        TransitionInterface $transition
+        TransitionInterface $transition,
     ): void {
         $targetStateName = (string)$xmlTransition->target;
         if (!isset($stateToProcessMap[$targetStateName])) {

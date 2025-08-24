@@ -67,7 +67,7 @@ interface FinderInterface
     public function filterItemsWithOnEnterEvent(
         array $stateMachineItems,
         array $processes,
-        array $sourceStates = []
+        array $sourceStates = [],
     ): array;
 
     /**

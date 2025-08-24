@@ -331,7 +331,7 @@ class Drawer implements DrawerInterface
         string $type = self::EDGE_FULL,
         array $attributes = [],
         ?string $fromName = null,
-        ?string $toName = null
+        ?string $toName = null,
     ): void {
         $label = [];
 

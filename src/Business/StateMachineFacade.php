@@ -25,7 +25,7 @@ class StateMachineFacade implements StateMachineFacadeInterface
      */
     public function triggerForNewStateMachineItem(
         ProcessDto $processDto,
-        int $identifier
+        int $identifier,
     ): int {
         return $this->getFactory()
             ->createLockedStateMachineTrigger()
@@ -132,7 +132,7 @@ class StateMachineFacade implements StateMachineFacadeInterface
         ProcessDto $processDto,
         ?string $highlightState = null,
         ?string $format = null,
-        ?int $fontSize = null
+        ?int $fontSize = null,
     ): string {
         $process = $this->getFactory()
             ->createStateMachineBuilder()

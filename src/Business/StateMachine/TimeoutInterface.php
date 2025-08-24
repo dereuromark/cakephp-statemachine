@@ -30,6 +30,6 @@ interface TimeoutInterface
     public function dropOldTimeout(
         ProcessInterface $process,
         string $stateName,
-        ItemDto $itemDto
+        ItemDto $itemDto,
     ): void;
 }

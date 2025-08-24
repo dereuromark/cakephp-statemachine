@@ -120,7 +120,7 @@ interface StateMachineFacadeInterface
         ProcessDto $processDto,
         ?string $highlightState = null,
         ?string $format = null,
-        ?int $fontSize = null
+        ?int $fontSize = null,
     ): string;
 
     /**

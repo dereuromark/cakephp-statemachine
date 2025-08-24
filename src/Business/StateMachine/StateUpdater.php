@@ -44,7 +44,7 @@ class StateUpdater implements StateUpdaterInterface
         TimeoutInterface $timeout,
         HandlerResolverInterface $stateMachineHandlerResolver,
         PersistenceInterface $stateMachinePersistence,
-        QueryContainerInterface $stateMachineQueryContainer
+        QueryContainerInterface $stateMachineQueryContainer,
     ) {
         $this->timeout = $timeout;
         $this->stateMachineHandlerResolver = $stateMachineHandlerResolver;
@@ -62,7 +62,7 @@ class StateUpdater implements StateUpdaterInterface
     public function updateStateMachineItemState(
         array $stateMachineItems,
         array $processes,
-        array $sourceStates
+        array $sourceStates,
     ): void {
         if (count($stateMachineItems) === 0) {
             return;
@@ -83,7 +83,7 @@ class StateUpdater implements StateUpdaterInterface
     protected function executeUpdateItemStateTransaction(
         array $processes,
         array $sourceStates,
-        ItemDto $itemDto
+        ItemDto $itemDto,
     ): void {
         $process = $processes[$itemDto->getProcessNameOrFail()];
 
@@ -105,7 +105,7 @@ class StateUpdater implements StateUpdaterInterface
      */
     protected function assertSourceStateExists(
         array $sourceStateBuffer,
-        ItemDto $itemDto
+        ItemDto $itemDto,
     ): void {
         if (!isset($sourceStateBuffer[$itemDto->getIdentifierOrFail()])) {
             throw new StateMachineException(
@@ -136,7 +136,7 @@ class StateUpdater implements StateUpdaterInterface
     protected function updateTimeouts(
         ProcessInterface $process,
         string $sourceState,
-        ItemDto $itemDto
+        ItemDto $itemDto,
     ): void {
         $this->timeout->dropOldTimeout($process, $sourceState, $itemDto);
         $this->timeout->setNewTimeout($process, $itemDto);
@@ -154,7 +154,7 @@ class StateUpdater implements StateUpdaterInterface
         string $sourceState,
         string $targetState,
         ItemDto $itemDto,
-        ProcessInterface $process
+        ProcessInterface $process,
     ): void {
         if ($sourceState === $targetState) {
             return;

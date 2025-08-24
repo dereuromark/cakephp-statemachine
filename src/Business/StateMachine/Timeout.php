@@ -95,7 +95,7 @@ class Timeout implements TimeoutInterface
     public function dropOldTimeout(
         ProcessInterface $process,
         string $stateName,
-        ItemDto $itemDto
+        ItemDto $itemDto,
     ): void {
         $sourceState = $this->getStateFromProcess($stateName, $process);
 

@@ -99,10 +99,10 @@ class FinderTest extends TestCase
     public function testGetManualEventsForStateMachineItemsShouldReturnManualEventsForGivenItems(): void
     {
         $manualEvents = [
-           'state name' => [
-               'event1',
-               'event2',
-           ],
+            'state name' => [
+                'event1',
+                'event2',
+            ],
         ];
 
         $processMock = $this->createProcessMock();
@@ -209,7 +209,7 @@ class FinderTest extends TestCase
     protected function createFinder(
         ?HandlerResolverInterface $handlerResolverMock = null,
         ?BuilderInterface $builderMock = null,
-        ?QueryContainerInterface $stateMachineQueryContainer = null
+        ?QueryContainerInterface $stateMachineQueryContainer = null,
     ): FinderInterface {
         if ($builderMock === null) {
             $builderMock = $this->createBuilderMock();

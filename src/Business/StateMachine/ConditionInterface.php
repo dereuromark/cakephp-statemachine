@@ -27,7 +27,7 @@ interface ConditionInterface
         array $transitions,
         ItemDto $itemDto,
         StateInterface $sourceState,
-        TransitionLogInterface $transactionLogger
+        TransitionLogInterface $transactionLogger,
     ): StateInterface;
 
     /**

@@ -19,7 +19,7 @@ interface TriggerInterface
      */
     public function triggerForNewStateMachineItem(
         ProcessDto $processDto,
-        int $identifier
+        int $identifier,
     ): int;
 
     /**

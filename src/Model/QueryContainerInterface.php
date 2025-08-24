@@ -73,7 +73,7 @@ interface QueryContainerInterface
     public function queryItemsByIdStateMachineProcessAndItemStates(
         string $stateMachineName,
         string $processName,
-        array $states
+        array $states,
     ): SelectQuery;
 
     /**

@@ -285,7 +285,7 @@ class StateUpdaterTest extends TestCase
      */
     protected function createStateUpdater(
         ?TimeoutInterface $timeout = null,
-        ?HandlerResolverInterface $handlerResolver = null
+        ?HandlerResolverInterface $handlerResolver = null,
     ): StateUpdaterInterface {
         if ($timeout === null) {
             $timeout = $this->createTimeoutMock();

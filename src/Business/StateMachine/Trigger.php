@@ -80,7 +80,7 @@ class Trigger implements TriggerInterface
         FinderInterface $finder,
         PersistenceInterface $stateMachinePersistence,
         ConditionInterface $condition,
-        StateUpdaterInterface $stateUpdater
+        StateUpdaterInterface $stateUpdater,
     ) {
         $this->transitionLog = $transitionLog;
         $this->stateMachineHandlerResolver = $stateMachineHandlerResolver;
@@ -106,7 +106,7 @@ class Trigger implements TriggerInterface
      */
     public function triggerForNewStateMachineItem(
         ProcessDto $processDto,
-        int $identifier
+        int $identifier,
     ): int {
         $itemDto = $this->createItemTransferForNewProcess($processDto, $identifier);
 
@@ -430,7 +430,7 @@ class Trigger implements TriggerInterface
      */
     protected function createItemTransferForNewProcess(
         ProcessDto $processDto,
-        int $identifier
+        int $identifier,
     ): ItemDto {
         $stateMachineHandler = $this->getStateMachineHandler($processDto->getStateMachineNameOrFail());
         $processName = $processDto->getProcessName() ?: $this->getCurrentProcess($stateMachineHandler->getActiveProcesses());

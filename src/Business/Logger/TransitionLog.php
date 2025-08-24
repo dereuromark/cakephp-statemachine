@@ -38,7 +38,7 @@ class TransitionLog implements TransitionLogInterface
      * @param \StateMachine\Model\Table\StateMachineTransitionLogsTable $stateMachineTransitionLogsTable
      */
     public function __construct(
-        StateMachineTransitionLogsTable $stateMachineTransitionLogsTable
+        StateMachineTransitionLogsTable $stateMachineTransitionLogsTable,
     ) {
         $this->stateMachineTransitionLogsTable = $stateMachineTransitionLogsTable;
     }

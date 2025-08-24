@@ -56,7 +56,7 @@ class Condition implements ConditionInterface
         HandlerResolverInterface $stateMachineHandlerResolver,
         FinderInterface $finder,
         PersistenceInterface $stateMachinePersistence,
-        StateUpdaterInterface $stateUpdate
+        StateUpdaterInterface $stateUpdate,
     ) {
         $this->transitionLog = $transitionLog;
         $this->stateMachineHandlerResolver = $stateMachineHandlerResolver;
@@ -77,7 +77,7 @@ class Condition implements ConditionInterface
         array $transitions,
         ItemDto $itemDto,
         StateInterface $sourceState,
-        TransitionLogInterface $transactionLogger
+        TransitionLogInterface $transactionLogger,
     ): StateInterface {
         $possibleTransitions = [];
         foreach ($transitions as $transition) {
@@ -111,7 +111,7 @@ class Condition implements ConditionInterface
     protected function checkCondition(
         ItemDto $itemDto,
         TransitionLogInterface $transactionLogger,
-        string $conditionName
+        string $conditionName,
     ): bool {
         $conditionPlugin = $this->getCondition(
             $conditionName,
@@ -205,7 +205,7 @@ class Condition implements ConditionInterface
     protected function getItemsByStatesAndProcessName(
         string $stateMachineName,
         array $states,
-        ProcessInterface $process
+        ProcessInterface $process,
     ): array {
         $stateMachineItemStateIds = $this->stateMachinePersistence->getStateMachineItemIdsByStatesProcessAndStateMachineName(
             $process->getName(),
@@ -233,7 +233,7 @@ class Condition implements ConditionInterface
     protected function persistAffectedStates(
         string $stateMachineName,
         array $states,
-        array $stateMachineItems
+        array $stateMachineItems,
     ): void {
         $targetStateMap = [];
         foreach ($stateMachineItems as $i => $itemDto) {

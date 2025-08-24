@@ -148,7 +148,7 @@ class QueryContainer implements QueryContainerInterface
     public function queryItemsByIdStateMachineProcessAndItemStates(
         string $stateMachineName,
         string $processName,
-        array $states
+        array $states,
     ): Query {
         $stateMachineItemStatesTable = $this->getFactory()->createStateMachineItemStatesTable();
         $stateMachineItemStateLogsTable = $this->getFactory()->createStateMachineItemStateLogsTable();

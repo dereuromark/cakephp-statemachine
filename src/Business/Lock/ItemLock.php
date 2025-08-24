@@ -42,7 +42,7 @@ class ItemLock implements ItemLockInterface
     public function __construct(
         QueryContainerInterface $queryContainer,
         StateMachineConfig $stateMachineConfig,
-        StateMachineLocksTable $stateMachineLocksTable
+        StateMachineLocksTable $stateMachineLocksTable,
     ) {
         $this->queryContainer = $queryContainer;
         $this->stateMachineConfig = $stateMachineConfig;
