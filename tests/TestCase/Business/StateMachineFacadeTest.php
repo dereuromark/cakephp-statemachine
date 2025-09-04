@@ -83,7 +83,7 @@ class StateMachineFacadeTest extends TestCase
     protected $StateMachineTransitionLogs;
 
     /**
-     * @var array
+     * @var array<string>
      */
     protected array $fixtures = [
         'plugin.StateMachine.StateMachineItemStateLogs',

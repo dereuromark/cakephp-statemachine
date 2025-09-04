@@ -384,7 +384,7 @@ class Finder implements FinderInterface
      */
     public function getItemMatrix(string $stateMachineName): array
     {
-        $states = $this->queryContainer->queryMatrix($stateMachineName)->find('list', ['keyField' => 'state', 'valueField' => 'count'])->toArray();
+        $states = $this->queryContainer->queryMatrix($stateMachineName)->find('list', keyField: 'state', valueField: 'count')->toArray();
 
         //TODO: time window?
         /*

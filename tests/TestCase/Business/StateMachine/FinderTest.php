@@ -33,7 +33,7 @@ class FinderTest extends TestCase
     protected $StateMachineProcesses;
 
     /**
-     * @var array
+     * @var array<string>
      */
     protected array $fixtures = [
         'plugin.StateMachine.StateMachineProcesses',

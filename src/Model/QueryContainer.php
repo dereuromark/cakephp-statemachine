@@ -65,7 +65,7 @@ class QueryContainer implements QueryContainerInterface
             ->find()
             ->contain($this->getFactory()->createStateMachineProcessesTable()->getAlias())
             ->contain($this->getFactory()->createStateMachineItemStateLogsTable()->getAlias(), function (Query $query) use ($itemDto) {
-                return $query->where(['identifier' => $itemDto->getIdentifierOrFail()])->orderDesc('id');
+                return $query->where(['identifier' => $itemDto->getIdentifierOrFail()])->orderByDesc('id');
             })
             ->where([$stateMachineItemStatesTable->aliasField('id') => $itemDto->getIdItemStateOrFail()]);
     }
@@ -114,7 +114,7 @@ class QueryContainer implements QueryContainerInterface
             ->where([
                 $stateMachineItemStateLogsTable->aliasField('identifier') => $identifier,
             ])
-            ->order([
+            ->orderBy([
                 $stateMachineItemStateLogsTable->aliasField('created') => 'ASC',
                 $stateMachineItemStateLogsTable->aliasField('id') => 'ASC',
             ]);
@@ -168,7 +168,7 @@ class QueryContainer implements QueryContainerInterface
             ->where([
                 $stateMachineItemStatesTable->aliasField('name') . ' IN ' => $states,
             ])
-            ->order([
+            ->orderBy([
                 $stateMachineItemStatesTable->aliasField('id') => 'ASC',
             ]);
     }
@@ -323,7 +323,7 @@ class QueryContainer implements QueryContainerInterface
 
         $query = $query
             ->select(['state', 'count' => $query->func()->count('*')])
-            ->group('state')
+            ->groupBy('state')
             ->where(['state_machine' => $stateMachineName]);
         if ($stateBlackList) {
             $query = $query->whereNotInList('state', $stateBlackList);

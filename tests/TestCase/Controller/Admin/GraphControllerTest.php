@@ -22,11 +22,18 @@ class GraphControllerTest extends TestCase
     /**
      * Fixtures
      *
-     * @var array
+     * @var array<string>
      */
     protected array $fixtures = [
         'plugin.StateMachine.StateMachineProcesses',
     ];
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->loadRoutes();
+    }
 
     /**
      * Test index method

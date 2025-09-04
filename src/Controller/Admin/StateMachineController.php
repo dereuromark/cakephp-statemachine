@@ -43,9 +43,9 @@ class StateMachineController extends AppController
                 ->find();
             $itemsPerStateMachine = $query
                 ->select(['state_machine', 'count' => $query->func()->count('*')])
-                ->group('state_machine')
+                ->groupBy('state_machine')
                 ->where(['state_machine IN' => $stateMachines])
-                ->find('list', ['keyField' => 'state_machine', 'valueField' => 'count'])
+                ->find('list', keyField: 'state_machine', valueField: 'count')
                 ->toArray();
         }
 

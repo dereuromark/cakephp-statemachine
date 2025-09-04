@@ -180,7 +180,7 @@ class StateMachineTransitionLogsTable extends Table
     {
         return $this->find()
             ->where(['state_machine_item_id' => $stateMachineItemId])
-            ->orderDesc('id')
+            ->orderByDesc('id')
             ->all()->toArray();
     }
 }

@@ -56,9 +56,9 @@ $cache = [
     'default' => [
         'className' => 'File',
     ],
-    '_cake_core_' => [
+    '_cake_translations_' => [
         'className' => 'File',
-        'prefix' => 'crud_myapp_cake_core_',
+        'prefix' => 'crud_myapp_cake_translations_',
         'path' => CACHE . 'persistent/',
         'serialize' => true,
         'duration' => '+10 seconds',
