@@ -28,13 +28,6 @@ class GraphControllerTest extends TestCase
         'plugin.StateMachine.StateMachineProcesses',
     ];
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->loadRoutes();
-    }
-
     /**
      * Test index method
      *
