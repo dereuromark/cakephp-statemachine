@@ -51,9 +51,10 @@ class StateMachineLocksController extends AppController
      */
     public function view($id = null)
     {
-        $stateMachineLock = $this->StateMachineLocks->get($id, [
-            'contain' => [],
-        ]);
+        $stateMachineLock = $this->StateMachineLocks->get(
+            $id,
+            contain: [],
+        );
 
         $this->set(compact('stateMachineLock'));
     }

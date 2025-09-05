@@ -41,25 +41,20 @@ class StateMachineItemsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'order' => [
-                'state_machine_transition_log_id' => 'DESC',
-            ],
-            'contain' => [
-                'StateMachineTransitionLogs',
-            ],
-        ];
+        $query = $this->StateMachineItems->find()
+            ->contain(['StateMachineTransitionLogs'])
+            ->orderByDesc('state_machine_transition_log_id');
 
         $stateMachineName = $this->request->getQuery('state-machine');
         if ($stateMachineName) {
-            $this->paginate['conditions'] = ['state_machine' => $stateMachineName];
+            $query->where(['state_machine' => $stateMachineName]);
         }
         $stateName = $this->request->getQuery('state');
         if ($stateName) {
-            $this->paginate['conditions']['state'] = $stateName;
+            $query->where(['state' => $stateName]);
         }
 
-        $stateMachineItems = $this->paginate($this->StateMachineItems);
+        $stateMachineItems = $this->paginate($query);
 
         $this->set(compact('stateMachineItems'));
     }
@@ -73,9 +68,10 @@ class StateMachineItemsController extends AppController
      */
     public function view($id = null)
     {
-        $stateMachineItem = $this->StateMachineItems->get($id, [
-            'contain' => ['StateMachineTransitionLogs' => 'StateMachineProcesses'],
-        ]);
+        $stateMachineItem = $this->StateMachineItems->get(
+            $id,
+            contain: ['StateMachineTransitionLogs' => 'StateMachineProcesses'],
+        );
 
         $stateMachineFacade = new StateMachineFacade();
         $itemDto = new ItemDto();

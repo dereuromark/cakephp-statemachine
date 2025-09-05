@@ -37,10 +37,9 @@ class StateMachineTimeoutsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['StateMachineItemStates', 'StateMachineProcesses'],
-        ];
-        $stateMachineTimeouts = $this->paginate();
+        $query = $this->StateMachineTimeouts->find()
+            ->contain(['StateMachineItemStates', 'StateMachineProcesses']);
+        $stateMachineTimeouts = $this->paginate($query);
 
         $this->set(compact('stateMachineTimeouts'));
     }
@@ -54,9 +53,7 @@ class StateMachineTimeoutsController extends AppController
      */
     public function view($id = null)
     {
-        $stateMachineTimeout = $this->StateMachineTimeouts->get($id, [
-            'contain' => ['StateMachineItemStates', 'StateMachineProcesses'],
-        ]);
+        $stateMachineTimeout = $this->StateMachineTimeouts->get($id, contain: ['StateMachineItemStates', 'StateMachineProcesses']);
 
         $this->set(compact('stateMachineTimeout'));
     }

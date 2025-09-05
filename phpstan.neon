@@ -8,9 +8,9 @@ parameters:
         - %rootDir%/../../../tests/shim.php
     excludePaths:
         - %rootDir%/../../../src/Transfer/*
-    checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
     ignoreErrors:
+        - identifier:  missingType.generics
+        - identifier:  missingType.iterableValue
         - '#Unsafe usage of new static\(\).#'
         - '#Method .+::.+Table\(\) should return .+Table but returns Cake\\ORM\\Table.#'
         - '#SimpleXMLElement.* does not accept string.#'

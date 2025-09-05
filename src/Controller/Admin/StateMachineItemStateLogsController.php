@@ -37,13 +37,10 @@ class StateMachineItemStateLogsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'order' => [
-                'id' => 'DESC',
-            ],
-            'contain' => ['StateMachineItemStates'],
-        ];
-        $stateMachineItemStateLogs = $this->paginate();
+        $query = $this->StateMachineItemStateLogs->find()
+            ->contain(['StateMachineItemStates'])
+            ->orderByDesc('StateMachineItemStateLogs.id');
+        $stateMachineItemStateLogs = $this->paginate($query);
 
         $this->set(compact('stateMachineItemStateLogs'));
     }
@@ -57,9 +54,7 @@ class StateMachineItemStateLogsController extends AppController
      */
     public function view($id = null)
     {
-        $stateMachineItemStateLog = $this->StateMachineItemStateLogs->get($id, [
-            'contain' => ['StateMachineItemStates'],
-        ]);
+        $stateMachineItemStateLog = $this->StateMachineItemStateLogs->get($id, contain: ['StateMachineItemStates']);
 
         $this->set(compact('stateMachineItemStateLog'));
     }

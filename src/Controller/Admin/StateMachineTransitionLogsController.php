@@ -37,13 +37,11 @@ class StateMachineTransitionLogsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'order' => [
-                'created' => 'DESC',
-            ],
-            'contain' => ['StateMachineProcesses'],
-        ];
-        $stateMachineTransitionLogs = $this->paginate();
+        $query = $this->StateMachineTransitionLogs->find()
+            ->contain(['StateMachineProcesses'])
+            ->orderByDesc('StateMachineTransitionLogs.created');
+
+        $stateMachineTransitionLogs = $this->paginate($query);
 
         $this->set(compact('stateMachineTransitionLogs'));
     }
@@ -57,9 +55,10 @@ class StateMachineTransitionLogsController extends AppController
      */
     public function view($id = null)
     {
-        $stateMachineTransitionLog = $this->StateMachineTransitionLogs->get($id, [
-            'contain' => ['StateMachineProcesses'],
-        ]);
+        $stateMachineTransitionLog = $this->StateMachineTransitionLogs->get(
+            $id,
+            contain: ['StateMachineProcesses'],
+        );
 
         $this->set(compact('stateMachineTransitionLog'));
     }
