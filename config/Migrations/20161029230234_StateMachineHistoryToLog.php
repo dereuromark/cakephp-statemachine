@@ -1,11 +1,11 @@
 <?php
 
-use Migrations\AbstractMigration;
+use Migrations\BaseMigration;
 
 /**
  * Use conventional names.
  */
-class StateMachineHistoryToLog extends AbstractMigration
+class StateMachineHistoryToLog extends BaseMigration
 {
     /**
      * @return void
