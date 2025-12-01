@@ -3,7 +3,16 @@
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+use Cake\Cache\Cache;
 use Cake\Core\Configure;
+use Cake\Core\Plugin;
+use Cake\Datasource\ConnectionManager;
+use Cake\TestSuite\Fixture\SchemaLoader;
+use Cake\View\View;
+use StateMachine\StateMachinePlugin;
+use TestApp\Application;
+use TestApp\Controller\AppController;
+use Tools\ToolsPlugin;
 use Tools\View\Icon\BootstrapIcon;
 
 if (!defined('DS')) {
@@ -37,9 +46,9 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 require CORE_PATH . 'config/bootstrap.php';
 require CAKE . 'functions.php';
 
-Cake\Core\Configure::write('debug', true);
+Configure::write('debug', true);
 
-Cake\Core\Configure::write('App', [
+Configure::write('App', [
     'namespace' => 'TestApp',
     'encoding' => 'UTF-8',
     'paths' => [
@@ -47,10 +56,10 @@ Cake\Core\Configure::write('App', [
     ],
 ]);
 
-Cake\Core\Configure::write('debug', true);
+Configure::write('debug', true);
 
-Cake\Core\Configure::write('Yandex.key', env('YANDEX_KEY'));
-Cake\Core\Configure::write('Transltr.live', env('TRANSLTR_LIVE'));
+Configure::write('Yandex.key', env('YANDEX_KEY'));
+Configure::write('Transltr.live', env('TRANSLTR_LIVE'));
 
 $cache = [
     'default' => [
@@ -72,7 +81,7 @@ $cache = [
     ],
 ];
 
-Cake\Cache\Cache::setConfig($cache);
+Cache::setConfig($cache);
 
 Configure::write('Icon', [
     'sets' => [
@@ -80,12 +89,12 @@ Configure::write('Icon', [
     ],
 ]);
 
-class_alias(TestApp\Controller\AppController::class, 'App\Controller\AppController');
-class_alias(Cake\View\View::class, 'App\View\AppView');
-class_alias(TestApp\Application::class, 'App\Application');
+class_alias(AppController::class, 'App\Controller\AppController');
+class_alias(View::class, 'App\View\AppView');
+class_alias(Application::class, 'App\Application');
 
-Cake\Core\Plugin::getCollection()->add(new \StateMachine\StateMachinePlugin());
-Cake\Core\Plugin::getCollection()->add(new \Tools\ToolsPlugin());
+Plugin::getCollection()->add(new StateMachinePlugin());
+Plugin::getCollection()->add(new ToolsPlugin());
 
 // Ensure default test connection is defined
 if (!getenv('db_class')) {
@@ -93,7 +102,7 @@ if (!getenv('db_class')) {
     putenv('db_dsn=sqlite::memory:');
 }
 
-Cake\Datasource\ConnectionManager::setConfig('test', [
+ConnectionManager::setConfig('test', [
     'className' => 'Cake\Database\Connection',
     'driver' => getenv('db_class') ?: null,
     'dsn' => getenv('db_dsn') ?: null,
@@ -102,7 +111,7 @@ Cake\Datasource\ConnectionManager::setConfig('test', [
     'cacheMetadata' => true,
 ]);
 
-Cake\Datasource\ConnectionManager::setConfig('test_database_log', [
+ConnectionManager::setConfig('test_database_log', [
     'className' => 'Cake\Database\Connection',
     'driver' => getenv('db_class') ?: null,
     'dsn' => getenv('db_dsn') ?: null,
@@ -112,6 +121,6 @@ Cake\Datasource\ConnectionManager::setConfig('test_database_log', [
 ]);
 
 if (env('FIXTURE_SCHEMA_METADATA')) {
-    $loader = new Cake\TestSuite\Fixture\SchemaLoader();
+    $loader = new SchemaLoader();
     $loader->loadInternalFile(env('FIXTURE_SCHEMA_METADATA'));
 }

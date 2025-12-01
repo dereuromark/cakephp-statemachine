@@ -7,6 +7,7 @@
 
 namespace StateMachine\Test\TestCase\Controller\Admin;
 
+use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
@@ -14,7 +15,7 @@ use Cake\TestSuite\TestCase;
  */
 class StateMachineItemStatesControllerTest extends TestCase
 {
-    use \Cake\TestSuite\IntegrationTestTrait;
+    use IntegrationTestTrait;
 
     /**
      * Fixtures

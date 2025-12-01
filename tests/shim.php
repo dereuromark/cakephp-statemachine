@@ -1,6 +1,7 @@
 <?php
 
 use PHP_CodeSniffer\Config;
+use PHPUnit\Framework\TestCase;
 
 $manualAutoload = getcwd() . '/vendor/squizlabs/php_codesniffer/autoload.php';
 if (!class_exists(Config::class) && file_exists($manualAutoload)) {
@@ -13,6 +14,6 @@ if (!defined('T_NULLABLE')) {
     define('T_NULLABLE', 'PHPCS_T_NULLABLE');
 }
 
-if (!class_exists(\PHPUnit\Framework\TestCase::class)) {
+if (!class_exists(TestCase::class)) {
     require 'TestCase.php';
 }

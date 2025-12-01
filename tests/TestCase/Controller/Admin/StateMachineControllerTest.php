@@ -9,6 +9,7 @@ namespace StateMachine\Test\TestCase\Controller\Admin;
 
 use Cake\Core\Configure;
 use Cake\ORM\TableRegistry;
+use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 use TestApp\StateMachine\DemoStateMachineHandler;
 
@@ -17,7 +18,7 @@ use TestApp\StateMachine\DemoStateMachineHandler;
  */
 class StateMachineControllerTest extends TestCase
 {
-    use \Cake\TestSuite\IntegrationTestTrait;
+    use IntegrationTestTrait;
 
     /**
      * Fixtures
