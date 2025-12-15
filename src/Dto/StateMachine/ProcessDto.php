@@ -248,11 +248,15 @@ class ProcessDto extends AbstractDto
 	 */
 	public function toArray(?string $type = null, ?array $fields = null, bool $touched = false): array
 	{
-		return $this->_toArrayInternal($type, $fields, $touched);
+		/** @var array{processName: string|null, stateMachineName: string|null} $result */
+		$result = $this->_toArrayInternal($type, $fields, $touched);
+
+		return $result;
 	}
 
 	/**
 	 * @param array{processName: string|null, stateMachineName: string|null} $data
+	 * @phpstan-param array<string, mixed> $data
 	 * @param bool $ignoreMissing
 	 * @param string|null $type
 	 *

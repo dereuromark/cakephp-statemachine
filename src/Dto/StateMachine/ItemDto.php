@@ -734,11 +734,15 @@ class ItemDto extends AbstractDto
 	 */
 	public function toArray(?string $type = null, ?array $fields = null, bool $touched = false): array
 	{
-		return $this->_toArrayInternal($type, $fields, $touched);
+		/** @var array{identifier: int|null, idStateMachineProcess: int|null, idItemState: int|null, processName: string|null, stateMachineName: string|null, stateName: string|null, eventName: string|null, createdAt: string|null} $result */
+		$result = $this->_toArrayInternal($type, $fields, $touched);
+
+		return $result;
 	}
 
 	/**
 	 * @param array{identifier: int|null, idStateMachineProcess: int|null, idItemState: int|null, processName: string|null, stateMachineName: string|null, stateName: string|null, eventName: string|null, createdAt: string|null} $data
+	 * @phpstan-param array<string, mixed> $data
 	 * @param bool $ignoreMissing
 	 * @param string|null $type
 	 *
