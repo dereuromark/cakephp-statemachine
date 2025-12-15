@@ -3,6 +3,8 @@
     "description": "CakePHP StateMachine Plugin",
     "license": "proprietary",
     "type": "cakephp-plugin",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Spryker Systems GmbH",
@@ -12,7 +14,8 @@
     "require": {
         "php": ">=8.3",
         "cakephp/cakephp": "^5.1.0",
-        "dereuromark/cakephp-dto": "^2.0.0",
+        "dereuromark/cakephp-dto": "dev-master",
+        "php-collective/dto": "dev-master",
         "phpdocumentor/graphviz": "^2.0.0"
     },
     "require-dev": {

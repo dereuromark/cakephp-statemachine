@@ -1,0 +1,15 @@
+StateMachine/Item:
+  fields:
+    identifier: int
+    idStateMachineProcess: int
+    idItemState: int
+    processName: string
+    stateMachineName: string
+    stateName: string
+    eventName: string
+    createdAt: string
+
+StateMachine/Process:
+  fields:
+    processName: string
+    stateMachineName: string
