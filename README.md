@@ -1,5 +1,10 @@
 #  CakePHP StateMachine Plugin
 
+> [!WARNING]
+> **This plugin is abandoned and no longer maintained.**
+>
+> Its successor is **[dereuromark/cakephp-workflow](https://github.com/dereuromark/cakephp-workflow)** — please use that for new projects and migrate existing ones over.
+
 [![CI](https://github.com/spryker/cakephp-statemachine/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/spryker/cakephp-statemachine/actions/workflows/ci.yml)
 [![PHPStan level](https://img.shields.io/badge/style-level%208-brightgreen.svg?style=flat-square&label=phpstan)](https://github.com/phpstan/phpstan)
 [![Latest Stable Version](https://poser.pugx.org/spryker/cakephp-statemachine/v/stable.svg)](https://packagist.org/spryker/dereuromark/cakephp-statemachine)
